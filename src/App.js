@@ -37,7 +37,7 @@ class App extends Component {
         },
         {
           id: '6',
-          message: 'you can ask your query?',
+          message: 'How can i help you?',
           trigger: 'search',
         },
         {
