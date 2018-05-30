@@ -16,7 +16,7 @@ bot = ChatBot('Bot',read_only=True,
         }
     ],
     trainer='chatterbot.trainers.ListTrainer')
-slack_token = 'xoxp-13390904948-187170561730-371311368160-d98a24fe580696e394d7d392b310e406'
+slack_token = 'SLACK_TOKEN' 
 sc = SlackClient(slack_token)
 
 app = Flask(__name__)
