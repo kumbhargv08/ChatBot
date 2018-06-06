@@ -16,7 +16,7 @@ bot = ChatBot('Bot',read_only=True,
         }
     ],
     trainer='chatterbot.trainers.ListTrainer')
-slack_token = 'xoxp-13390904948-187170561730-371311368160-d98a24fe580696e394d7d392b310e406'
+slack_token = 'slack token'
 sc = SlackClient(slack_token)
 
 app = Flask(__name__)
@@ -29,20 +29,28 @@ def get_answer( question ):
         sc.api_call(
             "chat.postMessage",
             channel="#pp",
-            text="Hi Vidya/Monali!!! Please answer following question"
+            text="Hi Vidya/Monali!!! Please answer following question " + question
             )
         if sc.rtm_connect():
             while True:
                 result = sc.rtm_read()
                 if(len(result)):
                     set1 = result[0]
-                    print(set1)
-                    if(len(set1) and set1["type"]=="message"):
-                        print("type is : " , type(set1))
+                    # print(type(set1))
+                    if("attachments" in set1.keys()):
+                        attachments = set1["attachments"][0]
+                        if(attachments["is_share"]):
+                            ques = attachments["text"].replace("Hi Vidya/Monali!!! Please answer following question ", "")
+                            print(ques)
+                            response = set1["text"]         #response=<bytecode> message
+                            response = response.split("> ")[1] if response.__contains__('>') else response
+                            bot.train([ques, response,])
+                    if(len(set1) and set1["type"]=="message" and set1["channel"]=="C6WKF1PBQ"):
+                        #print("type is : " , type(set1))
                         response = set1["text"]         #response=<bytecode> message
                         response = response.split("> ")[1] if response.__contains__('>') else response
-                        print("response is:",response)
-                        bot.train([question,response,])
+                        #print("response is:",response)
+                        
                         reply = response
                         break
                 #print("result is: " , result)
