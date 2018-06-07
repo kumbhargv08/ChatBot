@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Loading } from 'react-simple-chatbot';
-import axios from 'axios';
 import './App.css';
+import axios from 'axios'; 
 
 class ChatMessage extends Component {
   constructor(props) {
@@ -20,30 +20,32 @@ class ChatMessage extends Component {
     const self = this;
     const { steps } = this.props;
     const search = steps.search.value;
-    
+    const errorResponse = 'sorry, I did not understand that. We have posted your query to pp slack channel'
     if( search.toLowerCase().trim() != 'bye') {
       let url = 'http://localhost:5000/chat/query/' + search;
 
       // can do service call here to get response and set response t result
+
       axios.get( url , {
         headers: {
           'Access-Control-Allow-Origin': '*',
         }
       })
         .then(function (response) {
-          let answer = response.data ? response.data.answer : 'sorry, we cant help you. Please contact Vidya';
+          //console.log( '' + response );
+          let answer = response.data ? response.data.answer : errorResponse;
           answer = answer.replace(/-/g,"")
-          answer = ( answer == 'I am sorry, but I do not understand.' ) ? 'sorry, we cant help you. Please contact Vidya': answer
+          answer = ( answer == 'I am sorry, but I do not understand.' ) ? errorResponse: answer
           console.log( answer );
           self.setState({ loading: false, result: answer })
         })
         .catch(function (error) {
           console.log(error);
-          self.setState({ loading: false, result: 'sorry, we cant help you. Please contact Vidya' })
+          self.setState({ loading: false, result: errorResponse })
         });
-    } else {
-      self.setState({ loading: false, result: 'Bye, Have a nice day' })
-    }
+      } else {
+        self.setState({ loading: false, result: 'Bye, Have a nice day' })
+      }
   }
 
   triggetNext() {
