@@ -19,27 +19,30 @@ class ChatMessage extends Component {
     const self = this;
     const { steps } = this.props;
     const search = steps.search.value;
-    let url = 'http://localhost:5000/chat/query/' + search;
-
-    // can do service call here to get response and set response t result
-    axios.get( url , {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      }
-    })
-      .then(function (response) {
-        let answer = response.data ? response.data.answer : 'sorry, we cant help you. Please contact Vidya';
-        answer = answer.replace(/-/g,"")
-        answer = ( answer == 'I am sorry, but I do not understand.' ) ? 'sorry, we cant help you. Please contact Vidya': answer
-        console.log( answer );
-        self.setState({ loading: false, result: answer })
-      })
-      .catch(function (error) {
-        console.log(error);
-        self.setState({ loading: false, result: 'sorry, we cant help you. Please contact Vidya' })
-      });
-
     
+    if( search.toLowerCase().trim() != 'bye') {
+      let url = 'http://localhost:5000/chat/query/' + search;
+
+      // can do service call here to get response and set response t result
+      axios.get( url , {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        }
+      })
+        .then(function (response) {
+          let answer = response.data ? response.data.answer : 'sorry, we cant help you. Please contact Vidya';
+          answer = answer.replace(/-/g,"")
+          answer = ( answer == 'I am sorry, but I do not understand.' ) ? 'sorry, we cant help you. Please contact Vidya': answer
+          console.log( answer );
+          self.setState({ loading: false, result: answer })
+        })
+        .catch(function (error) {
+          console.log(error);
+          self.setState({ loading: false, result: 'sorry, we cant help you. Please contact Vidya' })
+        });
+    } else {
+      self.setState({ loading: false, result: 'Bye, Have a nice day' })
+    }
   }
 
   triggetNext() {
