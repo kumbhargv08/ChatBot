@@ -1,0 +1,25 @@
+categories:
+- specialist programmer
+conversations:
+- - How much years of experience is required
+  - 4 to 11 years
+- - What are criteria to be a power programmer
+  - you must have excellent, consistent academic credentials and should be BE/B.Tech/M.C.A/M.Sc/M.E/M.Tech
+- - How many tracks are there in Specialist programmer
+  - There are 3 tracks in Specialist Programmer. They are: 1)Functional Programming 2)Java Microservices 3)Scripting & NO SQL DB
+- - Give me more info about Functional Programming track
+  - Mandatory skills are Scala, Akka, Play Framework, Build REST Webservices using Scala/Akka. Desirable skills are Writing Spark programs with Hadoop and Hive, CouchBase/MongoDb/Cassandra, GIT/SVN, Docker/SWARM/Kubernets/Mesos, SBT, Bamboo/ Jenkins etc, ScalaTest/BDD, Test Automation, Actor Creation and Communication, Actor Hierachy and fault tolerance, Scala Monads- Future[T], Option[T] and so on, Remoting, Clustering.
+- - Give me more info about Java Microservices track
+  - Mandatory skills are Java 7/8, Spring, REST based services, API development. Desirable skills are Springboot, Apigee, ELK/Splunk, Pivotal Cloud Foundry, Hystrix/Circuit Breaker, Couchbase/MongoDB/Cassandra, GIT/SVN, Docker/Swarm/Kubernetes, Maven/ANT, Bamboo/Jenkins, JUNIT/Chai/Mocha
+- - Give me more info about Scripting & NO SQL DB track
+  - Mandatory skills are HTML 5, CSS 3, NodeJS, AngularJS/ReactJS, JQuery, ExpressJS, ReactJS( Flux), ReactJS(Redux), JEST, Bootstrap, NodeJS with Typescript, NoSQL DB(CouchBase/MongoDb/Cassandra). Desirable skills are GIT/SVN, Docker/SWARM/Kubernets/Mesos, ANT/Grunt/Cradle, Bamboo/ Jenkins, JEST/ Jasmine/ Karma
+- - what are educational requirements
+  - BTech , BE , MTech
+- - What is salary structure
+  - it depends on your ability
+- - what skills are required for specialist programmer
+  - Scala, Akka, Play Framework, Rest Webservices, Java 7/8, Spring, API development,HTML 5, CSS 3, NodeJS, AngularJS/ReactJS, JQuery, ExpressJS, ReactJS( Flux), ReactJS(Redux), JEST, Bootstrap, NodeJS with Typescript, NoSQL DB(CouchBase/MongoDb/Cassandra)
+- - why power programmer
+  - to be the best in what you do
+  - if you really think so, you don't want to be one
+  
