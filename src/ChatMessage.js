@@ -63,12 +63,7 @@ class ChatMessage extends Component {
             }}
           >
             {
-              !trigger &&
-              <button
-                onClick={() => this.triggetNext()}
-              >
-                Do you have further quesions?
-              </button>
+              !trigger && this.triggetNext()
             }
           </div>
         }
