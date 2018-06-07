@@ -4,6 +4,7 @@ from chatterbot.trainers import ListTrainer
 from slackclient import SlackClient
 from flask_cors import CORS
 from multiprocessing import Pool
+from monitor_slack import monitor_slack
 
 import time
 
@@ -32,7 +33,7 @@ def postQuestionOnSlack( question ):
         channel="#pp",
         text="Hi Vidya/Monali!!! Please answer following question " + question
         )
-    if sc.rtm_connect():
+    '''if sc.rtm_connect():
         while True:
             result = sc.rtm_read()
             if(len(result)):
@@ -58,6 +59,7 @@ def postQuestionOnSlack( question ):
             time.sleep(1)
     else:
         print("unable to connect to slack chatbot")
+        '''
 
 @app.route("/chat/query/<question>", methods=['GET'])
 def get_answer( question ):
@@ -74,4 +76,6 @@ def get_answer( question ):
 
 
 if __name__ == "__main__":
+    monitor_slack( bot )
     app.run( debug=True, threaded=True )
+    

@@ -1,23 +1,9 @@
 import requests
 import time, threading
 import json
-from chatterbot import ChatBot
-from chatterbot.trainers import ListTrainer
 
-bot = ChatBot('Bot',
-              logic_adapters=[
-        {
-            'import_path': 'chatterbot.logic.BestMatch'
-        },
-        {
-            'import_path': 'chatterbot.logic.LowConfidenceAdapter',
-            'threshold': 0.65,
-            'default_response': 'I am sorry, but I do not understand.'
-        }
-    ],
-    trainer='chatterbot.trainers.ListTrainer')
 
-def getSlackHistory():
+def getSlackHistory( bot ):
     ts = time.time() - 5 * 60
     headers = {
         # 'content-type': 'application/json',
@@ -25,7 +11,7 @@ def getSlackHistory():
     }
 
     params = {
-        'token': 'xoxp-13390904948-187170561730-377563214645-6a8769947601d95062e7ded2fce50aab',
+        'token': 'xoxp-13390904948-187170561730-378561941126-f593d9c252daab2099d45db3fb8f3520',
         'channel': 'C6WKF1PBQ',
         'oldest': ts
     }
@@ -46,9 +32,7 @@ def getSlackHistory():
 
     print(ts)
 
-def monitor_slack():
+def monitor_slack( bot ):
     print(time.ctime())
-    getSlackHistory()
-    threading.Timer( 5 * 60, monitor_slack).start()
-
-monitor_slack()
+    getSlackHistory( bot )
+    threading.Timer( 20, monitor_slack, [bot]).start()
