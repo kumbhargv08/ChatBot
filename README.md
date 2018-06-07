@@ -9,7 +9,7 @@ Steps to execute
 6. check application at "http://localhost:3000/"
 7. to start python server
 8. install flask with "pip flask"
-8. train chatterbot using bot1.py
-9. run server.py with "python server.py"
-10. it will start server at localhost:5000
-10. you might need to add "Allow-Control-Allow-Origin: *" extension to chrome and enable it 
+9. install flask_cors with "pip install flask_cors"
+10. train chatterbot using bot1.py
+11. run server.py with "python server.py"
+12. it will start server at localhost:5000

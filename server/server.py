@@ -2,6 +2,7 @@ from flask import Flask, jsonify
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from slackclient import SlackClient
+from flask_cors import CORS
 import time
 
 bot = ChatBot('Bot',read_only=True,
@@ -20,7 +21,7 @@ slack_token = 'SLACK_TOKEN'
 sc = SlackClient(slack_token)
 
 app = Flask(__name__)
-
+CORS(app)
 @app.route("/chat/query/<question>", methods=['GET'])
 def get_answer( question ):
     print( question )
