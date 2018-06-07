@@ -49,7 +49,7 @@ class App extends Component {
           id: '7',
           component: <ChatMessage />,
           waitAction: true,
-          trigger: '6',
+          trigger: 'search',
         },
       ]
     }
