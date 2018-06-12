@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Loading } from 'react-simple-chatbot';
 import './App.css';
 import axios from 'axios'; 
+import { TextToSpeech } from './TextToSpeech';
 
 class ChatMessage extends Component {
   constructor(props) {
@@ -64,7 +65,7 @@ class ChatMessage extends Component {
         </img>
       </div>
       <div className='chat-custom-message'>
-        { loading ? <Loading /> : result }
+        { loading ? <Loading /> : <TextToSpeech msg={result} /> }
         {
           !loading &&
           !trigger &&

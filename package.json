@@ -7,7 +7,8 @@
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4",
-    "react-simple-chatbot": "^0.2.10"
+    "react-simple-chatbot": "^0.2.10",
+    "artyom.js": "^1.0.6"
   },
   "scripts": {
     "start": "react-scripts start",
