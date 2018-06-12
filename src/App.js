@@ -107,7 +107,7 @@ class App extends Component {
     console.log(this.state.textToSpeech)
     return (
       <div className="App">
-      <button onClick={() => this.setState({textToSpeech: !this.state.textToSpeech})}>Mute</button>
+      {/* <button onClick={() => this.setState({textToSpeech: !this.state.textToSpeech})}>Mute</button> */}
         <ChatBot
           headerTitle="PP ChatBot"
           recognitionEnable={true}
