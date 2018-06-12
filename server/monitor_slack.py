@@ -3,16 +3,16 @@ import time, threading
 import json
 
 
-def getSlackHistory( bot ):
-    ts = time.time() - 5 * 60
+def getSlackHistory( bot, question_dict):
+    ts = time.time() - 40
     headers = {
         # 'content-type': 'application/json',
         'content-type': 'application/x-www-form-urlencoded',
     }
 
     params = {
-        'token': 'slack_token',
-        'channel': 'channel_id',
+        'token': 'xoxp-13390904948-172567049778-378161812517-702e3349359e45908520d76fce3e8ad2',
+        'channel': 'C6WKF1PBQ',
         'oldest': ts
     }
 
@@ -27,12 +27,15 @@ def getSlackHistory( bot ):
         question = attachment[ 'text' ]
         question = question.split('question')
         question = question[1]
+        question = question.encode('ascii','ignore').strip()
+        answer = answer.encode('ascii','ignore').strip()
         bot.train([question, answer,]) 
+        question_dict[question]=answer
         print(question,answer)
 
-    print(ts)
+    print(ts, question_dict)
 
-def monitor_slack( bot ):
+def monitor_slack( bot, question_dict ):
     print(time.ctime())
-    getSlackHistory( bot )
-    threading.Timer( 20, monitor_slack, [bot]).start()
+    getSlackHistory( bot, question_dict )
+    threading.Timer( 40, monitor_slack, [bot, question_dict]).start()

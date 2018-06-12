@@ -3,11 +3,12 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from slackclient import SlackClient
 from flask_cors import CORS
-from multiprocessing import Pool
 from monitor_slack import monitor_slack
 
 import time
 
+question_dict = {}
+unanswered_que =[None]
 bot = ChatBot('Bot',
               logic_adapters=[
         {
@@ -20,7 +21,7 @@ bot = ChatBot('Bot',
         }
     ],
     trainer='chatterbot.trainers.ListTrainer')
-slack_token = 'slack_token' 
+slack_token = 'xoxp-13390904948-172567049778-378161812517-702e3349359e45908520d76fce3e8ad2' 
 sc = SlackClient(slack_token)
 
 app = Flask(__name__)
@@ -33,49 +34,30 @@ def postQuestionOnSlack( question ):
         channel="#pp",
         text="Hi Vidya/Monali!!! Please answer following question " + question
         )
-    '''if sc.rtm_connect():
-        while True:
-            result = sc.rtm_read()
-            if(len(result)):
-                set1 = result[0]
-                # print(type(set1))
-                if("attachments" in set1.keys()):
-                    attachments = set1["attachments"][0]
-                    if(attachments["is_share"]):
-                        ques = attachments["text"].replace("Hi Vidya/Monali!!! Please answer following question ", "")
-                        print(ques)
-                        response = set1["text"]         #response=<bytecode> message
-                        response = response.split("> ")[1] if response.__contains__('>') else response
-                        bot.train([ques, response,])
-                if(len(set1) and set1["type"]=="message" and set1["channel"]=="C6WKF1PBQ"):
-                    #print("type is : " , type(set1))
-                    response = set1["text"]         #response=<bytecode> message
-                    response = response.split("> ")[1] if response.__contains__('>') else response
-                    print("response is:",response)
-                    bot.train([ques, response,])
-                    reply = response
-                    break
-            #print("result is: " , result)
-            time.sleep(1)
-    else:
-        print("unable to connect to slack chatbot")
-        '''
 
 @app.route("/chat/query/<question>", methods=['GET'])
 def get_answer( question ):
+    reply=''
     print( question )
-    reply = bot.get_response(question)
-    if question == reply or reply=='I am sorry, but I do not understand.':
-        pool = Pool(1)
-        pool.apply_async(postQuestionOnSlack, [question])
-        pool.close()
-        reply == 'sorry, we are unable to help you'           
+    print(unanswered_que, question_dict)
+    for query in unanswered_que:
+        print( 'query', query )
+        if query in question_dict.keys():
+            print( 'query', query )
+            reply= reply + "Someone has answered your previous qeustion: "+ query +":\n"+ question_dict[ query ] + ".\n and for this question: "
+            question_dict.pop( query, None)
+    bot_reply = bot.get_response(question)
+    if question == bot_reply or bot_reply=='I am sorry, but I do not understand.':
+        reply =reply + 'sorry, I did not understand that. We have posted your query to pp slack channel'
+        unanswered_que.append(question) 
+        postQuestionOnSlack(question)          
     else:
-        print('Chatbot:',reply)
+        reply =reply + str(bot_reply)
+        print('Chatbot:',reply)   
     return jsonify({'answer': str( reply )}), 201
 
 
 if __name__ == "__main__":
-    monitor_slack( bot )
+    monitor_slack( bot, question_dict )
     app.run( debug=True, threaded=True )
     

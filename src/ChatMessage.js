@@ -35,7 +35,7 @@ class ChatMessage extends Component {
           //console.log( '' + response );
           let answer = response.data ? response.data.answer : errorResponse;
           answer = answer.replace(/-/g,"")
-          answer = ( answer == 'I am sorry, but I do not understand.' ) ? errorResponse: answer
+          //answer = ( answer.__contains__('I am sorry, but I do not understand') ) ? answer = answer.replace('I am sorry, but I do not understand',errorResponse): answer
           console.log( answer );
           self.setState({ loading: false, result: answer })
         })
