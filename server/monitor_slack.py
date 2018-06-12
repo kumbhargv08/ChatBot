@@ -11,7 +11,7 @@ def getSlackHistory( bot, question_dict):
     }
 
     params = {
-        'token': 'xoxp-13390904948-172567049778-378161812517-702e3349359e45908520d76fce3e8ad2',
+        'token': 'slack_token',
         'channel': 'C6WKF1PBQ',
         'oldest': ts
     }
