@@ -4,6 +4,7 @@ from chatterbot.trainers import ListTrainer
 from slackclient import SlackClient
 from flask_cors import CORS
 from monitor_slack import monitor_slack
+import nltk
 
 import time
 
@@ -12,7 +13,9 @@ unanswered_que =[None]
 bot = ChatBot('Bot',
               logic_adapters=[
         {
-            'import_path': 'chatterbot.logic.BestMatch'
+            'import_path': 'chatterbot.logic.BestMatch',
+            #"statement_comparison_function": "chatterbot.comparisons.SynsetDistance",
+            #"response_selection_method": "chatterbot.response_selection.get_first_response"
         },
         {
             'import_path': 'chatterbot.logic.LowConfidenceAdapter',
