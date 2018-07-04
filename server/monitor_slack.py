@@ -27,8 +27,8 @@ def getSlackHistory( bot, question_dict):
         question = attachment[ 'text' ]
         question = question.split('question')
         question = question[1]
-        question = question.encode('ascii','ignore').strip()
-        answer = answer.encode('ascii','ignore').strip()
+        question = question.encode('utf-8','ignore').strip()
+        answer = answer.encode('utf-8','ignore').strip()
         bot.train([question, answer,]) 
         question_dict[question]=answer
         print(question,answer)
