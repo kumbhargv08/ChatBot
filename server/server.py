@@ -46,7 +46,7 @@ bot = PPChatBot(
 )
 
 #slack token to connect to Slack Client
-slack_token = 'xoxp-13390904948-207581812692-395136787829-9ae111ce4d042136321c0826e2a5a170' 
+slack_token = 'slack_token' 
 sc = SlackClient( slack_token )
 
 app = Flask(__name__)
