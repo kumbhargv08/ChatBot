@@ -3,8 +3,9 @@ import ChatMessage from './ChatMessage.js'
 import './App.css';
 import ChatBot from 'react-simple-chatbot';
 import TextToSpeech from './TextToSpeech';
+import v4 from 'uuid/v4';
 
-const withTextToSpeech = [
+let withTextToSpeech = [
   {
     id: '1',
     component: <TextToSpeech msg="Hi" />,
@@ -39,16 +40,10 @@ const withTextToSpeech = [
     id: 'search',
     user: true,
     trigger: '7',
-  },
-  {
-    id: '7',
-    component: <ChatMessage />,
-    waitAction: true,
-    trigger: 'search',
-  },
+  }
 ]
 
-const withoutTextToSpeech = [
+let withoutTextToSpeech = [
   {
     id: '1',
     message: 'hi',
@@ -83,13 +78,7 @@ const withoutTextToSpeech = [
     id: 'search',
     user: true,
     trigger: '7',
-  },
-  {
-    id: '7',
-    component: <ChatMessage />,
-    waitAction: true,
-    trigger: 'search',
-  },
+  }
 ]
 
 
@@ -98,11 +87,23 @@ class App extends Component {
 
   constructor( props ){
     super( props )
+    const sessionId =  v4(),
+      ChatMessageElement = {
+        id: '7',
+        component: <ChatMessage sessionId={sessionId} />,
+        waitAction: true,
+        trigger: 'search',
+      }
+
     this.state= {
       textToSpeech: true,
-      steps : withTextToSpeech 
+      steps : withTextToSpeech,
+      sessionId: sessionId
     }
+    withTextToSpeech.push(ChatMessageElement)
+    withoutTextToSpeech.push(ChatMessageElement)
   }
+
   render() {
     console.log(this.state.textToSpeech)
     return (

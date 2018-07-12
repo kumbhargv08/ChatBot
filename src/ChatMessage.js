@@ -11,7 +11,7 @@ class ChatMessage extends Component {
     this.state = {
       loading: true,
       result: '',
-      trigger: false,
+      trigger: false
     };
 
     this.triggetNext = this.triggetNext.bind(this);
@@ -19,20 +19,22 @@ class ChatMessage extends Component {
 
   componentWillMount() {
     const self = this;
-    const { steps } = this.props;
+    const { steps, sessionId } = this.props;
     const search = steps.search.value;
     const errorResponse = 'sorry, I did not understand that. We have posted your query to pp slack channel'
     if( search.toLowerCase().trim() != 'bye') {
-      let url = 'http://localhost:5000/chat/query/' + search;
+      let url = 'http://localhost:5000/userQuery';
 
       // can do service call here to get response and set response t result
 
-      axios.get( url , {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
+      axios({
+        method: 'post',
+        url: url,
+        data: {
+          query: search,
+          sessionId: sessionId
         }
-      })
-        .then(function (response) {
+      }).then(function (response) {
           //console.log( '' + response );
           let answer = response.data ? response.data.answer : errorResponse;
           answer = answer.replace(/-/g,"")
