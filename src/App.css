@@ -113,6 +113,7 @@
 .header-style{
   background-color:#FFFF01;
   height: 80px;
+  border: rgba(253, 253, 253, 0.15) black
 }
 
 .header-text{
@@ -130,4 +131,75 @@
 
 .drop-down{
   background-color: #FFFF01;
+  border: none;
+}
+
+.bxslzG {
+  height: 400px;
+  overflow-y: scroll;
+  margin-top: 2px;
+  padding-top: 6px;
+  background-color: #FFFF01;
+  border: rgba(253, 253, 253, 0.15) black;
+}
+
+.jKLQUD {
+  background: #FFFF01;
+  border-radius: 5px;
+  box-shadow: rgba(253, 253, 253, 0.15) 0px 1px 2px 0px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: right;
+  margin: 0 6px 10px 6px;
+  padding: 16px;
+}
+
+.chat-custom-message {
+  -webkit-animation: Lmuha .3s ease forwards;
+  animation: Lmuha .3s ease forwards;
+  background: black;
+  /* border-radius: 18px 18px 18px 0; */
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.15);
+  /* box-shadow: 0 1px 2px 0 rgba(0,0,0,0.15); */
+  color: #fff;
+  display: inline-block;
+  font-size: 14px;
+  /* max-width: 50%; */
+  margin: 0 0 10px 0;
+  overflow: hidden;
+  position: relative;
+  padding: 12px;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transform-origin: bottom left;
+  -ms-transform-origin: bottom left;
+  transform-origin: bottom left;
+}
+
+.kFPviT {
+  -webkit-animation: Lmuha .3s ease forwards;
+  animation: Lmuha .3s ease forwards;
+  background: #000;
+  border-radius: 18px 18px 0 18px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.15);
+  color: #ffffff;
+  display: inline-block;
+  font-size: 14px;
+  max-width: 50%;
+  margin: 0 0 10px 0;
+  overflow: hidden;
+  position: relative;
+  padding: 12px;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transform-origin: bottom right;
+  -ms-transform-origin: bottom right;
+  transform-origin: bottom right;
 }

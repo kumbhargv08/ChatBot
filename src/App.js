@@ -117,7 +117,7 @@ class App extends Component {
           steps={this.state.textToSpeech ? withTextToSpeech : withoutTextToSpeech}
           enableMobileAutoFocus={true}
           headerComponent={<ChatBotHeader />}
-          botAvatar= {<img src={avatar} alt='avatar'/>}
+          botAvatar={avatar}
         />
       </div>
     );
