@@ -4,6 +4,8 @@ import './App.css';
 import ChatBot from 'react-simple-chatbot';
 import TextToSpeech from './TextToSpeech';
 import v4 from 'uuid/v4';
+import ChatBotHeader from './Header'
+import avatar from './avatar.png'
 
 let withTextToSpeech = [
   {
@@ -28,7 +30,7 @@ let withTextToSpeech = [
   },
   {
     id: '5',
-    component: <TextToSpeech msg = 'Nice to meet you!' />,
+    component: <TextToSpeech msg='Nice to meet you!' />,
     trigger: 6,
   },
   {
@@ -85,9 +87,9 @@ let withoutTextToSpeech = [
 
 class App extends Component {
 
-  constructor( props ){
-    super( props )
-    const sessionId =  v4(),
+  constructor(props) {
+    super(props)
+    const sessionId = v4(),
       ChatMessageElement = {
         id: '7',
         component: <ChatMessage sessionId={sessionId} />,
@@ -95,9 +97,9 @@ class App extends Component {
         trigger: 'search',
       }
 
-    this.state= {
+    this.state = {
       textToSpeech: true,
-      steps : withTextToSpeech,
+      steps: withTextToSpeech,
       sessionId: sessionId
     }
     withTextToSpeech.push(ChatMessageElement)
@@ -108,11 +110,14 @@ class App extends Component {
     console.log(this.state.textToSpeech)
     return (
       <div className="App">
-      {/* <button onClick={() => this.setState({textToSpeech: !this.state.textToSpeech})}>Mute</button> */}
+        {/* <button onClick={() => this.setState({textToSpeech: !this.state.textToSpeech})}>Mute</button> */}
         <ChatBot
-          headerTitle="PP ChatBot"
+          headerTitle="ChatBot"
           recognitionEnable={true}
           steps={this.state.textToSpeech ? withTextToSpeech : withoutTextToSpeech}
+          enableMobileAutoFocus={true}
+          headerComponent={<ChatBotHeader />}
+          botAvatar= {<img src={avatar} alt='avatar'/>}
         />
       </div>
     );

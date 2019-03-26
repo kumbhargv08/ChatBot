@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin: 100px;
 }
 
 .App-logo {
@@ -61,7 +62,7 @@
 
 .chat-custom-message {
   animation: Lmuha .3s ease forwards;
-  background: #6E48AA;
+  background: black;
   border-radius: 18px 18px 18px 0;
   box-shadow: 0 1px 2px 0 rgba(0,0,0,0.15);
   color: #fff;
@@ -80,3 +81,53 @@
   transform-origin: bottom left;
 }
 
+
+.glfuN {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #FFFF01;
+  color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  fill: #fff;
+  height: 56px;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.dYUxQs {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+}
+
+.header-style{
+  background-color:#FFFF01;
+  height: 80px;
+}
+
+.header-text{
+  font-weight: bold;
+  text-align: left;
+  font-size: 20px;
+  padding-top:30px;
+  padding-left:15px;
+}
+
+.logo-style{
+  height: 48px;
+  width: 48px;
+}
+
+.drop-down{
+  background-color: #FFFF01;
+}
