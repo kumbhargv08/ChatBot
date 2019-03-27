@@ -7,7 +7,7 @@ class ChatBotHeader extends React.Component {
         return (
             <div>
                 <div className='header-style'>
-                    <div style={{ textAlign: 'left' }} onClick={(e) => this.props.handleClick(e.target.value)}>
+                    <div style={{ textAlign: 'left' }} onChange={(e) => this.props.handleClick(e.target.value)}>
                         <select className='drop-down'>
                             <option value="HL">HL</option>
                             <option value="BL">BL</option>

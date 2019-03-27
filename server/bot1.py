@@ -32,12 +32,12 @@ bot = PPChatBot(
 )
 bot.set_trainer(ListTrainer)
 
-for files in os.listdir('C:/Users/lakshaya.sood/Desktop/Project Demos/ChatBot/server/data'):
-    print files
-    stream = open('C:/Users/lakshaya.sood/Desktop/Project Demos/ChatBot/server/data/'+ files,'r')
+for files in os.listdir('C:/Users/raman.mishra/Desktop/ChatBot/server/data'):
+    print(files)
+    stream = open('C:/Users/raman.mishra/Desktop/ChatBot/server/data/'+ files,'r')
     #converting yaml to python object
     pyObject = yaml.load(stream)
-    print type(pyObject)
+    print(type(pyObject))
     arrayOfConverstions = pyObject['conversations']
     for conversation in arrayOfConverstions:
         bot.train(conversation)

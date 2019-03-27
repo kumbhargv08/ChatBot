@@ -1,0 +1,39 @@
+category:
+- Demo
+conversations:
+- - Issue in NSDL app Device is not detected. Please connect biometric device.
+  - Disconnect morpho device. Connect morpho device and wait for pop up message to come 'device is ready for use' after that proceed for fingerprint capturing.
+- - Case not present in dealer portal
+  - Check if the supplier id is the same as the supplier id mapped to the FLS. The case can also be stuck in RCU portal.
+- - Application on hold due to reason 'Invalid Bureau account details or History48'
+  - This occurs if the DateOpened column on Account Details has at least one the entries blank. There should be no disconnect in the account details; hence loan cannot be granted
+- - Case Showing invalid IFSC code
+  - IFSC code is not mapped. Ask FLS to raise a ticket to the MDS team to get it mapped
+- - Case is not moving, pending for disbursment or in under varifiaction for long
+  - Case could be pending for OPS verification. Wait until OPS team comes to a conclusion.
+- - Unable to upload PDF document in document upload
+  - Currently PDF documents are allowed to be uploaded for device with Android OS upto 8. Upload image format(.jpg, .jpeg, .png)
+- - Error in adding application/co-applicant
+  - Repunch application as it cannot be viewed in LOS
+- - Error in entering chassis number, engine number, Invoice number 'No special characters allowed'
+  - Check if by mistake enter key has been pressed by user. Retry by deleting entire field with the error and re-type.
+- - Perticular promo code is not visible to user
+  - Ask user to contact MDM team to get the promo code mapped.
+- - Error due to signer mis match
+  - Continue with physical sign
+- - Submit button not working on consent agreement page
+  - Select 'others' in company name on the previous page to avoide this issue.
+- - Screen stuck on 'Loading Database' after logging in 
+  - Close the application, clear cache, re-login and try again. If issue persist, rais a ME ticket.
+- - Error UserDetails not registered properly. Please check with technical support team.
+  - Mapping of FLS not done. Raise ME ticket with product team approval and assign to AppServer team
+- - Case stuck at RCU
+  - Check both sampler RCU and Hunter RCU team
+- - Unable to Login in LTFS App
+  - After 3 unsuccessful attempt your LTFS App will get locked, for unlocking the same, send mail to mail id - idmgmt@ltfs.com
+- - Customer not got Login Fee SMS Notification
+  - Customer will get Login Fee SMS notification on his mobile number once he paid login fee and payment gets succeed or failure
+- - Not able to do e-sign
+  - 1. Clear App cache for LTFS, Morpho and NSDL app \n 2. Use Latest nsdl apk received from support team \n Plug in morpho device \n 4. Wait till device registration \n 5. Retry for e-sign
+- - Please Provide application rejection reason
+  - If application got rejected up front while submitting the information, you will get the rejection like, Rejected due to Business Policy, Rejected Due to Credit Policy. For detailed information about rejection please contect to credit.
