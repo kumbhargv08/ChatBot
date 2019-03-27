@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ChatMessage from './ChatMessage.js'
 import './App.css';
+import axios from 'axios';
 import ChatBot from 'react-simple-chatbot';
 import TextToSpeech from './TextToSpeech';
 import v4 from 'uuid/v4';
