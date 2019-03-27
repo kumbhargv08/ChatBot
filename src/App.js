@@ -99,14 +99,21 @@ class App extends Component {
     this.state = {
       textToSpeech: true,
       steps: withTextToSpeech,
-      sessionId: sessionId
+      sessionId: sessionId,
+      category: 'HL'
     }
     withTextToSpeech.push(ChatMessageElement)
     withoutTextToSpeech.push(ChatMessageElement)
+
+    this.handleCategoryClick = this.handleCategoryClick.bind(this)
+  }
+
+  handleCategoryClick(value) {
+    this.setState({ category: value })
   }
 
   render() {
-    console.log(this.state.textToSpeech)
+    console.log(this.state)
     return (
       <div className="App">
         {/* <button onClick={() => this.setState({textToSpeech: !this.state.textToSpeech})}>Mute</button> */}
@@ -115,7 +122,10 @@ class App extends Component {
           recognitionEnable={true}
           steps={this.state.textToSpeech ? withTextToSpeech : withoutTextToSpeech}
           enableMobileAutoFocus={true}
-          headerComponent={<ChatBotHeader />}
+          headerComponent={
+            <ChatBotHeader
+              handleClick={(value) => this.handleCategoryClick(value)}
+            />}
           botAvatar='./avatar.svg'
         />
       </div>
