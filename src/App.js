@@ -103,6 +103,8 @@ class App extends Component {
   }
 
   componentDidMount() {
+    const self = this
+    console.log("inside did mount")
     let url = 'https://erpuat.ltfs.com:446/LTFSPerfiosApp/api/twhlLogin';
     // can do service call here to get response and set response t result
 
@@ -110,19 +112,23 @@ class App extends Component {
       method: 'post',
       url: url,
       data: {
-        "registrationToken": "dDkU_gCL_u4:APA91bGGtCdVvOlX1fVMrI-y5h_D_Xv4kdWjWQgvs5Vh03m-G7FYfmSnZafeedOa5UHFOqhClkJYExFowDJNl6bLh4m0fDlCdg-tL1lOG4q1am4tocreeBDdSy7IM78ztcudODhyubqc",
-        "passWord": "welcome@1234", "userName": "USERHL11",
-        "imei": "869737024563196", "partnerFlag": "false", "product": "TW", "version": "12.1.5"
+        registrationToken: "dDkU_gCL_u4:APA91bGGtCdVvOlX1fVMrI-y5h_D_Xv4kdWjWQgvs5Vh03m-G7FYfmSnZafeedOa5UHFOqhClkJYExFowDJNl6bLh4m0fDlCdg-tL1lOG4q1am4tocreeBDdSy7IM78ztcudODhyubqc",
+        passWord: "welcome@1234", userName: "HLUSER4",
+        imei: "869737024563196", partnerFlag: "false", product: "TW", version: "12.1.5"
       },
+      headers:{
+        'Access-Control-Allow-Origin':'*',
+        'Content-Type':'application/json'
+      }
     }).then(function (response) {
-      console.log('' + response);
+      console.log(response);
       let token = response.data.token
 
-      this.setState({ lendToken: token })
+      self.setState({ lendToken: token })
     })
       .catch(function (error) {
         console.log(error);
-        this.setState({ loading: false, result: error })
+        self.setState({ loading: false, result: error })
       });
   }
 

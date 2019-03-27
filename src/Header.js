@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import logo from './lnt1.png'
+import logo from './LTFS_LOGO.png'
 
 class ChatBotHeader extends React.Component {
     render() {

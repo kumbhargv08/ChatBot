@@ -48,7 +48,7 @@ class ChatMessage extends Component {
         });
     } else if (search.toLowerCase().trim().startsWith('#reason')) {
       let url = 'https://erpuat.ltfs.com:446/LTFSPerfiosApp/api/PopulateTWHL';
-      let appId = search.toLowerCase().trim().split(':')(1)
+      let appId = search.toLowerCase().trim().split(':')[1].split('%')[0]
       // can do service call here to get response and set response t result
 
       axios({
@@ -62,7 +62,7 @@ class ChatMessage extends Component {
         },
         headers: { lendToken: this.props.lendToken }
       }).then(function (response) {
-        console.log('' + response);
+        console.log(response);
         let answer = response.data.BRE_Rejection_Reason__c;
         answer = answer.replace(/-/g, "")
         //answer = ( answer.__contains__('I am sorry, but I do not understand') ) ? answer = answer.replace('I am sorry, but I do not understand',errorResponse): answer

@@ -126,7 +126,7 @@
 
 .logo-style{
   height: 48px;
-  width: 48px;
+  width: 170px;
 }
 
 .drop-down{
@@ -139,12 +139,12 @@
   overflow-y: scroll;
   margin-top: 2px;
   padding-top: 6px;
-  background-color: #ffca00;
+  background-color: #fff;
   border: rgba(253, 253, 253, 0.15) black;
 }
 
 .jKLQUD {
-  background: #ffca00;
+  background: #cacaca;
   border-radius: 5px;
   box-shadow: rgba(253, 253, 253, 0.15) 0px 1px 2px 0px;
   display: -webkit-box;
