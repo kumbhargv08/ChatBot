@@ -122,7 +122,7 @@ class App extends Component {
     })
       .catch(function (error) {
         console.log(error);
-        self.setState({ loading: false, result: errorResponse })
+        this.setState({ loading: false, result: error })
       });
   }
 
