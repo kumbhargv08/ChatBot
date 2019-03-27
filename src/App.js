@@ -5,7 +5,6 @@ import ChatBot from 'react-simple-chatbot';
 import TextToSpeech from './TextToSpeech';
 import v4 from 'uuid/v4';
 import ChatBotHeader from './Header'
-import avatar from './avatar.png'
 
 let withTextToSpeech = [
   {
@@ -117,7 +116,7 @@ class App extends Component {
           steps={this.state.textToSpeech ? withTextToSpeech : withoutTextToSpeech}
           enableMobileAutoFocus={true}
           headerComponent={<ChatBotHeader />}
-          botAvatar={avatar}
+          botAvatar='./avatar.svg'
         />
       </div>
     );

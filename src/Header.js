@@ -1,7 +1,6 @@
 import React from 'react'
 import './App.css'
-import logo from './larsen-and-tubro.png'
-import Dropdown from 'react-bootstrap'
+import logo from './lnt1.png'
 
 class ChatBotHeader extends React.Component {
     render() {

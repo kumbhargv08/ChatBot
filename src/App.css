@@ -87,7 +87,7 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background: #FFFF01;
+  background: #ffca00;
   color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
@@ -111,7 +111,7 @@
 }
 
 .header-style{
-  background-color:#FFFF01;
+  background-color:#ffca00;
   height: 80px;
   border: rgba(253, 253, 253, 0.15) black
 }
@@ -130,7 +130,7 @@
 }
 
 .drop-down{
-  background-color: #FFFF01;
+  background-color: #ffca00;
   border: none;
 }
 
@@ -139,12 +139,12 @@
   overflow-y: scroll;
   margin-top: 2px;
   padding-top: 6px;
-  background-color: #FFFF01;
+  background-color: #ffca00;
   border: rgba(253, 253, 253, 0.15) black;
 }
 
 .jKLQUD {
-  background: #FFFF01;
+  background: #ffca00;
   border-radius: 5px;
   box-shadow: rgba(253, 253, 253, 0.15) 0px 1px 2px 0px;
   display: -webkit-box;
