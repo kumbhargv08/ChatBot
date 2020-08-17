@@ -99,7 +99,7 @@ class App extends Component {
   constructor( props ){
     super( props )
     this.state= {
-      textToSpeech: true,
+      textToSpeech: false,
       steps : withTextToSpeech 
     }
   }

@@ -13,3 +13,16 @@ Steps to execute
 10. train chatterbot using bot1.py
 11. run server.py with "python server.py"
 12. it will start server at localhost:5000
+
+python==3.6
+chatterbot==0.8.7
+slackclient==1.0.7
+flask
+flask_cors
+
+slack bot permissions
+channels:history
+channels:read
+chat:write
+chat:write.public
+incoming-webhook

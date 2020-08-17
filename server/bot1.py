@@ -7,7 +7,7 @@ bot = ChatBot('Bot')
 bot.set_trainer(ListTrainer)
 
 for files in os.listdir('G:/ChatBot/server/data'):
-    print files
+    print(files)
     data = open('G:/ChatBot/server/data/'+ files,'r').readlines()
     bot.train(data)
 

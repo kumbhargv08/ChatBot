@@ -21,7 +21,7 @@ bot = ChatBot('Bot',
         }
     ],
     trainer='chatterbot.trainers.ListTrainer')
-slack_token = 'slack_token' 
+slack_token = 'xoxb-1266608971971-1304360632818-jm0M99DLFivVIT9K51HHfHtL' 
 sc = SlackClient(slack_token)
 
 app = Flask(__name__)
@@ -31,8 +31,8 @@ def postQuestionOnSlack( question ):
     reply = ''
     sc.api_call(
         "chat.postMessage",
-        channel="#pp",
-        text="Hi Vidya/Monali!!! Please answer following question " + question
+        channel="C017T0WKEFP",
+        text="Hi Team!!! Please answer following question " + question
         )
 
 @app.route("/chat/query/<question>", methods=['GET'])
@@ -48,7 +48,7 @@ def get_answer( question ):
             question_dict.pop( query, None)
     bot_reply = bot.get_response(question)
     if question == bot_reply or bot_reply=='I am sorry, but I do not understand.':
-        reply =reply + 'sorry, I did not understand that. We have posted your query to pp slack channel'
+        reply =reply + 'sorry, I did not understand that. We have posted your query to support slack channel'
         unanswered_que.append(question) 
         postQuestionOnSlack(question)          
     else:

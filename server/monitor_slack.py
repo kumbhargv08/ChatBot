@@ -11,14 +11,16 @@ def getSlackHistory( bot, question_dict):
     }
 
     params = {
-        'token': 'slack_token',
-        'channel': 'C6WKF1PBQ',
-        'oldest': ts
+        'token': 'xoxb-1266608971971-1304360632818-jm0M99DLFivVIT9K51HHfHtL',
+        'channel': 'C017T0WKEFP',
+        'oldest': str(ts)
     }
 
-    url = "https://slack.com/api/channels.history"
-    resp = requests.post(url, data=params, headers=headers)
+    url = "https://slack.com/api/conversations.history?token=" + params['token'] + "&channel=" + params['channel'] + "&oldest=" + params['oldest']
+    resp = requests.get(url, headers)
+    
     response_data = json.loads( resp.content )
+    print(response_data)
     output_dict = [x for x in response_data[ 'messages' ] if 'attachments' in x.keys() ]
     for data in output_dict:
         t = {}
@@ -27,8 +29,8 @@ def getSlackHistory( bot, question_dict):
         question = attachment[ 'text' ]
         question = question.split('question')
         question = question[1]
-        question = question.encode('ascii','ignore').strip()
-        answer = answer.encode('ascii','ignore').strip()
+        question = question.strip()
+        answer = answer.strip()
         bot.train([question, answer,]) 
         question_dict[question]=answer
         print(question,answer)
